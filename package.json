@@ -10,7 +10,6 @@
         "url": "https://yanmasharski.github.io"
     },
     "dependencies": {
-        "com.drg.core": "https://github.com/yanmasharski/drg.core.git#1.0.0",
-        "com.cysharp.unitask": "2.3.3"
+        "com.drg.core": "https://github.com/yanmasharski/drg.core.git#1.0.0"
     }
 }

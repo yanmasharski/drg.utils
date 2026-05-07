@@ -1,7 +1,8 @@
 {
-    "name": "DRG.Utils",
+    "name": "DRG.Utils.Runtime",
     "rootNamespace": "DRG.Utils",
     "references": [
+        "DRG.Utils",
         "DRG.Core"
     ],
     "includePlatforms": [],
@@ -12,5 +13,5 @@
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": true
+    "noEngineReferences": false
 }
