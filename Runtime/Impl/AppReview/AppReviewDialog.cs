@@ -27,12 +27,12 @@ namespace DRG.Utils
             var success = UnityEngine.iOS.Device.RequestStoreReview();
             if (!success)
             {
-                logger.LogWarning("AppReviewDialog: Failed to request store review.");
+                _logger.LogWarning("AppReviewDialog: Failed to request store review.");
                 onComplete?.Invoke(false);
                 return;
             }
 
-            logger.Log("AppReviewDialog: Review requested.");
+            _logger.Log("AppReviewDialog: Review requested.");
             onComplete?.Invoke(true);
             return;
 #endif
@@ -68,7 +68,7 @@ namespace DRG.Utils
 
                 if (requestFlowOperation.Error != ReviewErrorCode.NoError)
                 {
-                    logger.LogWarning($"AppReviewDialog: RequestReviewFlow error: {requestFlowOperation.Error}");
+                    _logger.LogWarning($"AppReviewDialog: RequestReviewFlow error: {requestFlowOperation.Error}");
                     onComplete?.Invoke(false);
                     yield break;
                 }
@@ -78,17 +78,17 @@ namespace DRG.Utils
 
                 if (launchFlowOperation.Error != ReviewErrorCode.NoError)
                 {
-                    logger.LogWarning($"AppReviewDialog: LaunchReviewFlow error: {launchFlowOperation.Error}");
+                    _logger.LogWarning($"AppReviewDialog: LaunchReviewFlow error: {launchFlowOperation.Error}");
                     onComplete?.Invoke(false);
                     yield break;
                 }
 
-                logger.Log("AppReviewDialog: finished.");
+                _logger.Log("AppReviewDialog: finished.");
                 onComplete?.Invoke(true);
             }
             catch (Exception e)
             {
-                logger.LogException(e);
+                _logger.LogException(() => e);
                 onComplete?.Invoke(false);
             }
         }
@@ -98,10 +98,13 @@ namespace DRG.Utils
 		{
 			public static readonly NullLogger Instance = new();
 
-			public void Log(string message) { }
-			public void LogWarning(string message) { }
-			public void LogError(string message) { }
-			public void LogException(Exception exception) { }
+			public void Log(Func<string> message) { }
+
+			public void LogWarning(Func<string> message) { }
+
+			public void LogError(Func<string> message) { }
+
+			public void LogException(Func<Exception> exception) { }
 		}
 	}
 }

@@ -69,7 +69,7 @@ namespace DRG.Utils
 					}
 					catch (Exception e)
 					{
-						item.Logger?.LogException(e);
+						item.Logger?.LogException(() => e);
 					}
 				}
 			}
@@ -79,10 +79,13 @@ namespace DRG.Utils
 		{
 			public static readonly NullLogger Instance = new();
 
-			public void Log(string message) { }
-			public void LogWarning(string message) { }
-			public void LogError(string message) { }
-			public void LogException(Exception exception) { }
+			public void Log(Func<string> message) { }
+
+			public void LogWarning(Func<string> message) { }
+
+			public void LogError(Func<string> message) { }
+
+			public void LogException(Func<Exception> exception) { }
 		}
 	}
 }
