@@ -1,0 +1,19 @@
+{
+    "name": "DRG.Utils.Editor",
+    "rootNamespace": "DRG.Utils",
+    "references": [
+        "DRG.Utils",
+        "DRG.Core"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -24,7 +24,7 @@ namespace DRG.Utils
 		private static IAppReviewDialog CreateBest(ILogger logger)
 		{
 #if UNITY_EDITOR
-			return new EditorAppReviewDialog(logger);
+			return AppReviewEditorBridge.CreateAppReviewDialog?.Invoke(logger) ?? new AppReviewDialog(logger);
 #else
             return new AppReviewDialog(logger);
 #endif

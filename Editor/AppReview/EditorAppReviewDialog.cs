@@ -2,11 +2,10 @@ using System;
 using System.Threading.Tasks;
 using DRG.Core.Logs;
 
-#if UNITY_EDITOR
 namespace DRG.Utils
 {
 	/// <summary>
-	/// Editor-only implementation of <see cref="DRG.Utils.IAppReviewDialog"/>.
+	/// Editor-only implementation of <see cref="IAppReviewDialog"/>.
 	/// Shows a native Unity Editor dialog and returns whether the user confirmed.
 	/// </summary>
 	public sealed class EditorAppReviewDialog : IAppReviewDialog
@@ -65,4 +64,3 @@ namespace DRG.Utils
 		}
 	}
 }
-#endif

@@ -3,7 +3,6 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
 namespace DRG.Utils
 {
 	public static class EditorNativeDialog
@@ -305,4 +304,3 @@ namespace DRG.Utils
 		}
 	}
 }
-#endif
